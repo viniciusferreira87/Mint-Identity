@@ -1,0 +1,52 @@
+<div class="nav-bar-div">
+  <div class="container">
+    <div class="nav-bar">
+      <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start" animationDuration="0"
+        style="width: 100%;">
+        <mat-tab labelClass="nav-title" disabled="true">
+          <ng-template mat-tab-label>
+            <a mat-icon-button class="tab-title-button" href="../"><mat-icon>arrow_back</mat-icon>
+            </a><span>Menu</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Examples" aria-selected="true" #tab1>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-div">
+  <div class="container">
+    <div [ngStyle]="{ display: !tab1.isActive ? 'none' : null }">
+      <div style="display:flex; gap: 16px">
+        <mat-card appearance="outlined" style="flex: 1 1 auto">
+          <mat-card-content>
+            <div class="card-top">
+              <h3 class="card-title">Menu</h3>
+            </div>
+            <div class="card-middle">
+
+
+
+              <section>
+                <div class="example-label">Basic</div>
+                <div class="example-row">
+                  <button mat-stroked-button [matMenuTriggerFor]="menu">Menu</button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                  </mat-menu>
+                </div>
+              </section>
+            </div>
+
+
+            
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

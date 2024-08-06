@@ -1,0 +1,53 @@
+<div class="nav-bar-div">
+  <div class="container">
+    <div class="nav-bar">
+      <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start" animationDuration="0"
+        style="width: 100%;">
+        <mat-tab labelClass="nav-title" disabled="true">
+          <ng-template mat-tab-label><span>Components</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="List" aria-selected="true" #tab1>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-div">
+  <div class="container">
+    <div [ngStyle]="{ display: !tab1.isActive ? 'none' : null }">
+      <div style="display:flex; gap: 16px">
+        <mat-card appearance="outlined" style="flex: 1 1 auto">
+          <mat-card-content>
+            <div class="card-top">
+              <h3 class="card-title">Components</h3>
+            </div>
+            <div class="card-middle">
+
+
+              <mat-list>
+                <mat-list-item><a href="./badge">Badge</a></mat-list-item>
+                <mat-list-item><a href="./button">Button</a></mat-list-item>
+                <mat-list-item><a href="./chip">Chip</a></mat-list-item>
+                <mat-list-item><a href="./input">Input</a></mat-list-item>
+                <mat-list-item><a href="./menu">Menu</a></mat-list-item>
+                <mat-list-item><a href="./progress">Progress</a></mat-list-item>
+                <mat-list-item><a href="./sidenav">Sidenav</a></mat-list-item>
+                <mat-list-item><a href="./snackbar">Snackbar</a></mat-list-item>
+                <mat-list-item><a href="./tab">Tab</a></mat-list-item>
+                <mat-list-item><a href="./table">Table</a></mat-list-item>
+                <mat-list-item><a href="./toolbar">Toolbar</a></mat-list-item>
+                <mat-list-item><a href="./tooltip">Tooltip</a></mat-list-item>
+              </mat-list>
+
+
+            </div>
+            <div class="card-bottom"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

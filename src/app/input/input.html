@@ -1,0 +1,162 @@
+<div class="nav-bar-div">
+  <div class="container">
+    <div class="nav-bar">
+      <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start" animationDuration="0"
+        style="width: 100%;">
+        <mat-tab labelClass="nav-title" disabled="true">
+          <ng-template mat-tab-label>
+            <a mat-icon-button class="tab-title-button" href="../"><mat-icon>arrow_back</mat-icon>
+            </a><span>Input</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Examples" aria-selected="true" #tab1>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-div">
+  <div class="container">
+    <div [ngStyle]="{ display: !tab1.isActive ? 'none' : null }">
+      <div style="display:flex; gap: 16px">
+        <mat-card appearance="outlined" style="flex: 1 1 auto">
+          <mat-card-content>
+            <div class="card-top">
+              <h3 class="card-title">Input</h3>
+            </div>
+            <div class="card-middle">
+
+
+
+
+  <h2>Checkbox</h2>
+  <section>
+    <div class="example-label">Checkbox</div>
+    <div class="example-row">
+      <mat-checkbox checked="true">Checkbox</mat-checkbox>
+      <mat-checkbox [disabled]="true" checked="true">Disabled</mat-checkbox>
+    </div>
+  </section>
+  <mat-divider></mat-divider>
+  <section>
+    <div class="example-label">Checkbox (error)</div>
+    <div class="example-row">
+      <mat-checkbox color="warn" checked="true">Checkbox</mat-checkbox>
+      <mat-checkbox [disabled]="true" checked="true" color="warn">Disabled</mat-checkbox>
+    </div>
+  </section>
+
+  <h2>Radio</h2>
+  <section>
+    <div class="example-label">Radio</div>
+    <div class="example-row">
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Option 1</mat-radio-button>
+        <mat-radio-button value="2">Option 2</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </section>
+  <mat-divider></mat-divider>
+  <section>
+    <div class="example-label">Radio (error)</div>
+    <div class="example-row">
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1" color="warn">Option 1</mat-radio-button>
+        <mat-radio-button value="2" color="warn">Option 2</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </section>
+
+
+  <h2>Slider</h2>
+  <section>
+    <div class="example-label">Slide toogle</div>
+    <div class="example-row">
+      <mat-slide-toggle>Slide me!</mat-slide-toggle><br />
+      <mat-slide-toggle labelPosition="before">...and slide me too!</mat-slide-toggle>
+    </div>
+  </section>
+
+
+
+  <h2>Form</h2>
+  <section>
+    <div class="example-label">Basic</div>
+    <div class="example-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Input</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Select</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <mat-divider></mat-divider>
+  <section>
+    <div class="example-label">Label on focus/hover</div>
+    <div class="example-row">
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Input</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Select</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <mat-divider></mat-divider>
+  <section>
+    <div class="example-label">Autocomplete</div>
+    <div class="example-row">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Property</mat-label>
+          <input type="text" placeholder="Select a property" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto" (blur)="checkOptionSelected()" required>
+          <mat-autocomplete autoActiveFirstOption autoSelectActiveOption hideSingleSelectionIndicator="true"
+            #auto="matAutocomplete">
+            @for (option of filteredOptions | async; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+            }
+          </mat-autocomplete>
+          <mat-error *ngIf="myControl.hasError('required')">
+            Required field.
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+  </section>
+</div>
+
+<div class="card-bottom"></div>
+</mat-card-content>
+</mat-card>
+</div>
+</div>
+</div>
+</div>

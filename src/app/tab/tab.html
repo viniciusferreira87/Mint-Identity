@@ -1,0 +1,139 @@
+<div class="nav-bar-div">
+  <div class="container">
+    <div class="nav-bar">
+      <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start" animationDuration="0"
+        style="width: 100%;">
+        <mat-tab labelClass="nav-title" disabled="true">
+          <ng-template mat-tab-label>
+            <a mat-icon-button class="tab-title-button" href="../"><mat-icon>arrow_back</mat-icon>
+            </a><span>Snackbar</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Examples" aria-selected="true" #tab1>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-div">
+  <div class="container">
+    <div [ngStyle]="{ display: !tab1.isActive ? 'none' : null }">
+      <div style="display:flex; gap: 16px">
+        <mat-card appearance="outlined" style="flex: 1 1 auto">
+          <mat-card-content>
+            <div class="card-top">
+              <h3 class="card-title">Snackbar</h3>
+            </div>
+            <div class="card-middle">
+
+
+
+
+              <section>
+                <div class="example-label">Default with title</div>
+                <div class="example-row">
+                  <div class="nav-bar">
+                    <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start"
+                      animationDuration="300ms" style="width: 600px;">
+                      <mat-tab labelClass="nav-title" disabled="true">
+                        <ng-template mat-tab-label>
+                          <span>Page title</span>
+                        </ng-template>
+                      </mat-tab>
+                      <mat-tab label="Tab 1" aria-selected="true" active>Content 1</mat-tab>
+                      <mat-tab label="Tab 2">Content 2</mat-tab>
+                    </mat-tab-group>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <div class="example-label">Default with title 2</div>
+                <div class="example-row">
+                  <div class="nav-bar">
+                    <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start"
+                      animationDuration="300ms" style="width: 600px;">
+                      <mat-tab labelClass="nav-title" disabled="true">
+                        <ng-template mat-tab-label>
+                          <button mat-icon-button class="tab-title-button"
+                            onclick="alert('ok')"><mat-icon>arrow_back</mat-icon>
+                          </button>
+                          <span>Page title</span>
+                        </ng-template>
+                      </mat-tab>
+                      <mat-tab label="Tab 1" aria-selected="true" active>Content 1</mat-tab>
+                      <mat-tab label="Tab 2">Content 2</mat-tab>
+                      <mat-tab label="Tab 3">Content 3</mat-tab>
+                    </mat-tab-group>
+                  </div>
+                </div>
+              </section>
+
+
+
+              <section>
+                <div class="example-label">Long tab list</div>
+                <div class="example-row">
+                  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="300ms"
+                    style="width: 600px;">
+                    <mat-tab label="Tab 1">Content 1</mat-tab>
+                    <mat-tab label="Tab 2">Content 2</mat-tab>
+                    <mat-tab label="Tab 3">Content 3</mat-tab>
+                    <mat-tab label="Tab 4">Content 4</mat-tab>
+                    <mat-tab label="Tab 5">Content 5</mat-tab>
+                    <mat-tab label="Tab 6">Content 6</mat-tab>
+                    <mat-tab label="Tab 7">Content 7</mat-tab>
+                    <mat-tab label="Tab 8">Content 8</mat-tab>
+                    <mat-tab label="Tab 9">Content 9</mat-tab>
+                    <mat-tab label="Tab 10">Content 10</mat-tab>
+                  </mat-tab-group>
+                </div>
+
+              </section>
+              <mat-divider></mat-divider>
+              <section>
+                <div class="example-label">Streched tab list</div>
+                <div class="example-row">
+                  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start" animationDuration="300ms"
+                    style="width: 600px;">
+                    <mat-tab label="Tab 1">Content 1</mat-tab>
+                    <mat-tab label="Tab 2">Content 2</mat-tab>
+                    <mat-tab label="Tab 3">Content 3</mat-tab>
+                  </mat-tab-group>
+                </div>
+              </section>
+
+
+              <mat-divider></mat-divider>
+              <section>
+                <div class="example-label">Custom label</div>
+                <div class="example-row">
+                  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start" animationDuration="300ms"
+                    style="width: 600px;">
+                    <mat-tab><ng-template mat-tab-label>
+                        <mat-icon style="margin-right: 8px;">home</mat-icon>
+                        Tab 1
+                      </ng-template>Content 1</mat-tab>
+                    <mat-tab><ng-template mat-tab-label>
+                        <mat-icon style="margin-right: 8px;">home</mat-icon>
+                        Tab 2
+                      </ng-template>Content 2</mat-tab>
+                    <mat-tab><ng-template mat-tab-label>
+                        <mat-icon style="margin-right: 8px;">home</mat-icon>
+                        Tab 3
+                      </ng-template>Content 3</mat-tab>
+                  </mat-tab-group>
+                </div>
+              </section>
+            </div>
+
+
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

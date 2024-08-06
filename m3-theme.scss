@@ -1,0 +1,1050 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+// Note: Color palettes are generated from primary: #00A0BE, secondary: #5F7800, tertiary: #EB8200, neutral: #FAFAFA
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #001f27,
+    20: #003641,
+    25: #00424f,
+    30: #004e5e,
+    35: #005b6d,
+    40: #00687c,
+    50: #00829b,
+    60: #009ebc,
+    70: #31bada,
+    80: #58d6f7,
+    90: #b0ecff,
+    95: #daf5ff,
+    98: #f1fbff,
+    99: #f9fdff,
+    100: #ffffff
+  ),
+  secondary: (
+    0: #000000,
+    10: #161e00,
+    20: #283500,
+    25: #324100,
+    30: #3c4d00,
+    35: #465900,
+    40: #506600,
+    50: #67800d,
+    60: #809b2a,
+    70: #9ab643,
+    80: #b4d25c,
+    90: #d0ef75,
+    95: #defd81,
+    98: #f3ffca,
+    99: #fbffe2,
+    100: #ffffff
+  ),
+  tertiary: (
+    0: #000000,
+    10: #2e1500,
+    20: #4d2700,
+    25: #5d3000,
+    30: #6d3900,
+    35: #7e4300,
+    40: #904d00,
+    50: #b46200,
+    60: #d97800,
+    70: #fd9019,
+    80: #ffb77c,
+    90: #ffdcc2,
+    95: #ffede2,
+    98: #fff8f5,
+    99: #fffbff,
+    100: #ffffff
+  ),
+  neutral: (
+    0: #000000,
+    4: #000c0e,
+    6: #001316,
+    10: #001f24,
+    12: #002429,
+    17: #002f35,
+    20: #00363d,
+    22: #003b42,
+    24: #004047,
+    25: #00424a,
+    30: #004f58,
+    35: #005b66,
+    40: #006874,
+    50: #008391,
+    60: #00a0b0,
+    70: #22bccf,
+    80: #4fd8eb,
+    87: #81e9f9,
+    90: #97f0ff,
+    92: #aef3ff,
+    94: #c5f6ff,
+    95: #d0f8ff,
+    96: #daf9ff,
+    98: #edfcff,
+    99: #f6feff,
+    100: #ffffff
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #151d20,
+    20: #293235,
+    25: #343d40,
+    30: #40484b,
+    35: #4b5457,
+    40: #576063,
+    50: #70787c,
+    60: #899296,
+    70: #a4adb0,
+    80: #bfc8cb,
+    90: #dbe4e7,
+    95: #e9f2f6,
+    98: #f2fbfe,
+    99: #f9fdff,
+    100: #ffffff
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff
+  )
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes, neutral-variant),
+  error: map.get($_palettes, error)
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      //primary: $_primary,
+      //tertiary: $_tertiary,
+      use-system-variables: true
+    ),
+    typography: (
+      use-system-variables: false
+    ),
+    density: (
+      scale: 0
+    )
+  )
+);
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      //primary: $_primary,
+      //tertiary: $_tertiary,
+      use-system-variables: true
+    ),
+    typography: (
+      use-system-variables: false
+    ),
+    density: (
+      scale: 0
+    )
+  )
+);
+
+:root {
+  @include mat.all-component-themes($light-theme);
+  //@include mat.system-level-colors($light-theme);
+  //@include mat.system-level-typography($light-theme);
+  @include mat.color-variants-backwards-compatibility($light-theme);
+
+  --sys-maincolor: #00829b;
+  --sys-primary: #00687b;
+  --sys-surface-tint: #00667a;
+  --sys-on-primary: #ffffff;
+  --sys-primary-container: #28adcc;
+  --sys-on-primary-container: #00141a;
+  --sys-secondary: #405100;
+  --sys-on-secondary: #ffffff;
+  --sys-secondary-container: #5f7800;
+  --sys-on-secondary-container: #ffffff;
+  --sys-tertiary: #904d00;
+  --sys-on-tertiary: #ffffff;
+  --sys-tertiary-container: #f98d15;
+  --sys-on-tertiary-container: #311700;
+  --sys-error: #ba1a1a;
+  --sys-on-error: #ffffff;
+  --sys-error-container: #ffdad6;
+  --sys-on-error-container: #410002;
+  --sys-background: #f5fafc;
+  --sys-on-background: #171c1e;
+  --sys-surface: #fcf8f8;
+  --sys-on-surface: #1d1b1b;
+  --sys-surface-variant: #e0e3e3;
+  --sys-on-surface-variant: #444748;
+  --sys-outline: #747878;
+  --sys-outline-variant: #c3c6c6;
+  --sys-shadow: rgba(0, 0, 0, 0.35);
+  --sys-scrim: #000000;
+  --sys-inverse-surface: #313030;
+  --sys-inverse-on-surface: #f4f0ef;
+  --sys-inverse-primary: #5fd5f5;
+  --sys-primary-fixed: #b0ecff;
+  --sys-on-primary-fixed: #001f27;
+  --sys-primary-fixed-dim: #5fd5f5;
+  --sys-on-primary-fixed-variant: #004e5e;
+  --sys-secondary-fixed: #d0ef75;
+  --sys-on-secondary-fixed: #161e00;
+  --sys-secondary-fixed-dim: #b4d25c;
+  --sys-on-secondary-fixed-variant: #3c4d00;
+  --sys-tertiary-fixed: #ffdcc2;
+  --sys-on-tertiary-fixed: #2e1500;
+  --sys-tertiary-fixed-dim: #ffb77c;
+  --sys-on-tertiary-fixed-variant: #6d3900;
+  --sys-surface-dim: #ddd9d9;
+  --sys-surface-bright: #fcf8f8;
+  --sys-surface-container-lowest: #ffffff;
+  --sys-surface-container-low: #fcf8f8;
+  --sys-surface-container: #f1edec;
+  --sys-surface-container-high: #ebe7e7;
+  --sys-surface-container-highest: #e5e2e1;
+
+  --sys-typescale-display-large-font: 400 57px / 64px "Roboto";
+  --sys-typescale-display-medium-font: 400 45px / 52px "Roboto";
+  --sys-typescale-display-small-font: 400 36px / 44px "Roboto";
+
+  --sys-typescale-headline-large-font: 400 32px / 40px "Roboto";
+  --sys-typescale-headline-medium-font: 400 28px / 36px "Roboto";
+  --sys-typescale-headline-small-font: 400 24px / 32px "Roboto";
+
+  --sys-typescale-title-large-font: 500 22px / 28px "Roboto";
+  --sys-typescale-title-medium-font: 500 16px / 24px "Roboto";
+  --sys-typescale-title-small-font: 500 14px / 20px "Roboto";
+
+  --sys-typescale-body-large-font: 400 14px / 20px "Roboto";
+  --sys-typescale-body-medium-font: 400 13px / 18px "Roboto";
+  --sys-typescale-body-small-font: 400 12px / 16px "Roboto";
+  --sys-typescale-body-xsmall-font: 400 11px / 14px "Roboto";
+
+  --sys-typescale-label-large-font: 400 14px / 20px "Roboto";
+  --sys-typescale-label-medium-font: 400 12px / 16px "Roboto";
+  --sys-typescale-label-small-font: 400 11px / 16px "Roboto";
+
+  @media (prefers-color-scheme: dark) {
+    //@include mat.all-component-colors($dark-theme);
+    //@include mat.color-variants-backwards-compatibility($dark-theme);
+    --sys-maincolor: #86d1e9;
+    --sys-primary: #86d1e9;
+    --sys-surface-tint: #5fd5f5;
+    --sys-on-primary: #003641;
+    --sys-primary-container: #008098;
+    --sys-on-primary-container: #ffffff;
+    --sys-secondary: #b4d25c;
+    --sys-on-secondary: #283500;
+    --sys-secondary-container: #566e00;
+    --sys-on-secondary-container: #ffffff;
+    --sys-tertiary: #ffb77c;
+    --sys-on-tertiary: #4d2700;
+    --sys-tertiary-container: #e07b00;
+    --sys-on-tertiary-container: #010000;
+    --sys-error: #ffb4ab;
+    --sys-on-error: #690005;
+    --sys-error-container: #93000a;
+    --sys-on-error-container: #ffdad6;
+    --sys-background: #0f1416;
+    --sys-on-background: #dee3e5;
+    --sys-surface: #141313;
+    --sys-on-surface: #e5e2e1;
+    --sys-surface-variant: #444748;
+    --sys-on-surface-variant: #c4c7c7;
+    --sys-outline: #8e9192;
+    --sys-outline-variant: #444748;
+    --sys-shadow: rgba(0 0 0 0.35);
+    --sys-scrim: #000000;
+    --sys-inverse-surface: #e5e2e1;
+    --sys-inverse-on-surface: #313030;
+    --sys-inverse-primary: #00687c;
+    --sys-primary-fixed: #b0ecff;
+    --sys-on-primary-fixed: #001f27;
+    --sys-primary-fixed-dim: #5fd5f5;
+    --sys-on-primary-fixed-variant: #004e5e;
+    --sys-secondary-fixed: #d0ef75;
+    --sys-on-secondary-fixed: #161e00;
+    --sys-secondary-fixed-dim: #b4d25c;
+    --sys-on-secondary-fixed-variant: #3c4d00;
+    --sys-tertiary-fixed: #ffdcc2;
+    --sys-on-tertiary-fixed: #2e1500;
+    --sys-tertiary-fixed-dim: #ffb77c;
+    --sys-on-tertiary-fixed-variant: #6d3900;
+    --sys-surface-dim: #141313;
+    --sys-surface-bright: #3a3939;
+    --sys-surface-container-lowest: #0e0e0e;
+    --sys-surface-container-low: #1c1b1b;
+    --sys-surface-container: #201f1f;
+    --sys-surface-container-high: #2a2a2a;
+    --sys-surface-container-highest: #353434;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--sys-surface-container-lowest);
+  color: var(--sys-on-surface);
+}
+body {
+  margin: 0px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root,
+:host {
+  /* Buttons */
+  --sys-button-height: 35px;
+
+  --mdc-text-button-container-height: var(--sys-button-height);
+  --mdc-outlined-button-container-height: var(--sys-button-height);
+  --mdc-protected-button-container-height: var(--sys-button-height);
+  --mdc-filled-button-container-height: var(--sys-button-height);
+  --mdc-icon-button-state-layer-size: var(--sys-button-height);
+
+  --sys-button-padding: 12px;
+  --mat-text-button-horizontal-padding: var(--sys-button-padding);
+  --mat-outlined-button-horizontal-padding: var(--sys-button-padding);
+  --mat-protected-button-horizontal-padding: var(--sys-button-padding);
+  --mat-filled-button-horizontal-padding: var(--sys-button-padding);
+  --mdc-outlined-button-outline-color: var(--sys-outline-variant);
+  --mdc-outlined-button-pressed-outline-color: var(--sys-maincolor);
+  --mdc-filled-button-container-color: var(--sys-maincolor);
+
+  --sys-icon-offset: -2px;
+  --mat-text-button-button-icon-offset: var(--sys-icon-offset);
+  --mat-outlined-button-icon-offset: var(--sys-icon-offset);
+  --mat-protected-button-icon-offset: var(--sys-icon-offset);
+  --mat-filled-button-icon-offset: var(--sys-icon-offset);
+
+  /* Button toggle */
+  --mat-standard-button-toggle-height: var(--sys-button-height);
+  --mat-standard-button-toggle-selected-state-background-color: var(--sys-maincolor);
+  --mat-standard-button-toggle-selected-state-text-color: var(--sys-on-primary);
+  --mat-standard-button-toggle-divider-color: var(--sys-outline-variant);
+
+  --mat-select-panel-background-color: var(--sys-surface);
+
+  /* Divider */
+  --mat-divider-color: var(--sys-surface-container-high);
+
+  /* Switch */
+  --mdc-switch-state-layer-size: var(--sys-button-height);
+  --mat-switch-track-outline-color: var(--sys-outline-variant);
+
+  /* Tabs */
+  --mdc-tab-indicator-active-indicator-color: var(--sys-primary-container);
+  --mat-tab-header-active-focus-indicator-color: var(--sys-primary-container);
+
+  /* Chips */
+  --mdc-chip-outline-width: 0px;
+  --mdc-chip-label-text-size: 13px;
+  --mdc-chip-container-height: 26px;
+  --mdc-chip-leading-space: 10px;
+  --mdc-chip-trailing-space: 10px;
+
+  --mdc-chip-outline-color: transparent;
+  --mdc-chip-elevated-container-color: rgba(0, 129, 155, 0.12);
+
+  /* Paginator */
+  --mat-paginator-container-background-color: transparent;
+  --mat-paginator-container-size: 35px;
+  --mat-paginator-form-field-container-height: var(--sys-button-height);
+  --mat-paginator-form-field-container-vertical-padding: 5px;
+  --mat-paginator-container-text-size: 12px;
+
+  /* Input */
+  --mdc-outlined-select-text-field-label-text-color: #444748;
+  --mdc-outlined-select-text-field-input-text-color: #1c1b1b;
+  --mdc-outlined-select-text-field-input-text-size: 14px;
+  --mdc-outlined-select-text-field-input-text-line-height: 0px;
+  --mdc-outlined-select-text-field-label-text-line-height: 14px;
+  --mdc-outlined-select-text-field-label-text-populated-line-height: 14px;
+  --mdc-outlined-select-text-field-focus-outline-color: var(--sys-maincolor);
+  --mdc-outlined-select-text-field-outline-color: var(--sys-outline-variant);
+  --mdc-outlined-select-text-field-placeholder-text-color: var(--sys-outline-variant);
+  --mat-select-placeholder-text-color: var(--sys-outline-variant);
+
+  --mdc-outlined-text-field-label-text-color: #444748;
+  --mdc-outlined-text-field-input-text-color: #1c1b1b;
+  --mdc-outlined-text-field-input-text-size: 14px;
+  --mdc-outlined-text-field-outline-width: 1px;
+  --mdc-outlined-text-field-focus-outline-width: 2.3px;
+  --mdc-outlined-text-field-focus-outline-color: var(--sys-maincolor);
+  --mdc-outlined-text-field-outline-color: var(--sys-outline-variant);
+  --mdc-outlined-text-field-placeholder-text-color: var(--sys-outline-variant);
+
+  --mat-form-field-container-height: var(--sys-button-height);
+  --mat-form-field-container-vertical-padding: 5px !important;
+
+  /* Select input field */
+  --mat-select-panel-background-color: var(--sys-surface-container-low);
+  --mat-option-selected-state-layer-color: var(--sys-primary-container);
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(--sys-on-primary) !important;
+  --mat-option-label-text-color: var(--sys-on-surface);
+  --mat-option-selected-state-label-text-color: var(--sys-on-primary);
+  --mat-full-pseudo-checkbox-selected-icon-color: var(--sys-on-primary);
+  --mat-switch-track-outline-color: var(--sys-outline-variant);
+
+  /* Table */
+  --mat-table-background-color: var(--sys-surface-container-lowest);
+  --mat-table-row-item-outline-color: var(--sys-outline-variant);
+
+  /* Cards */
+  --mdc-outlined-card-container-color: var(--sys-surface-container-lowest);
+
+  /* Sidenav */
+  --mat-sidenav-container-shape: 0px;
+  --mat-sidenav-container-elevation-shadow: 0px 0px 3px color-mix(in srgb, var(--sys-scrim) 12%, transparent);
+
+  /* Expansion panel */
+  --mat-expansion-container-shape: 0px;
+
+  /* Progress spinner */
+  --mdc-circular-progress-size: 18px;
+  --mdc-circular-progress-active-indicator-width: 18px;
+
+  /* Toolbar */
+  --mat-toolbar-standard-height: 56px;
+  --mat-toolbar-container-background-color: var(--sys-maincolor);
+  --mat-toolbar-container-text-color: var(--sys-on-primary);
+}
+
+:root .mat-accent {
+  --sys-tertiary: var(--mat-toolbar-container-background-color);
+  --sys-tertiary-container: var(--sys-primary-container);
+  --sys-on-tertiary-container: var(--sys-on-primary-container);
+}
+
+/* Select field input */
+.mat-mdc-option {
+  min-height: 40px;
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  --mat-option-selected-state-label-text-color: var(--sys-on-primary);
+}
+.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,
+.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after {
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(--sys-on-primary);
+}
+
+/* Chips */
+.mat-mdc-chip {
+  --mdc-chip-elevated-container-color: color-mix(in srgb, var(--sys-primary) 12%, transparent);
+  border-width: 0px;
+}
+
+.mat-mdc-chip.small {
+  --mdc-chip-elevated-container-color: color-mix(in srgb, var(--sys-primary) 8%, transparent);
+  --mdc-chip-label-text-size: 11px;
+}
+
+.mat-mdc-chip-set {
+  align-items: center;
+}
+
+.mat-mdc-chip-set .mat-mdc-chip-set {
+  border: var(--sys-outline-variant) 1px solid;
+  padding: 1px 2px;
+  border-radius: 10px;
+  margin: 0 0 0 8px;
+}
+
+.mdc-evolution-chip__cell,
+.mdc-evolution-chip__action {
+  height: unset;
+}
+
+.mat-mdc-chip-set .mdc-evolution-chip {
+  margin: 1px 0 1px 8px !important;
+  min-height: 26px;
+}
+
+.mat-mdc-chip-set .mdc-evolution-chip.small {
+  min-height: 22px;
+  height: 22px;
+}
+
+.mdc-evolution-chip-set__chips {
+  align-items: center;
+  flex-flow: nowrap !important;
+}
+
+.mat-mdc-standard-chip .mdc-evolution-chip__action--primary {
+  padding: 4px 8px !important;
+}
+
+.scroll-nowrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  min-height: 50px;
+}
+
+/* Icon button */
+:root .mdc-icon-button .mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+:root .mat-accent .mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Button */
+:root .mat-accent.mat-mdc-button-base.mat-mdc-icon-button {
+  width: 40px;
+  height: 40px;
+}
+
+:root .mat-mdc-icon-button {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  --sys-tertiary: var(--sys-maincolor);
+}
+
+:root .mdc-button.mat-accent {
+  --sys-button-padding: 16px;
+  --sys-button-height: 40px;
+
+  --mdc-filled-button-container-height: var(--sys-button-height);
+  --mat-filled-button-horizontal-padding: var(--sys-button-padding);
+  --mdc-outlined-button-container-height: var(--sys-button-height);
+  --mat-outlined-button-horizontal-padding: var(--sys-button-padding);
+  --mdc-text-button-container-height: var(--sys-button-height);
+  --mat-text-button-horizontal-padding: var(--sys-button-padding);
+  --mdc-protected-button-container-height: var(--sys-button-height);
+  --mat-protected-button-horizontal-padding: var(--sys-button-padding);
+
+  --sys-tertiary: var(--mat-toolbar-container-background-color);
+  --mdc-icon-button-state-layer-size: 40px;
+}
+
+:root .mat-toolbar .mat-accent.mat-mdc-button-base {
+  --mdc-icon-button-icon-color: var(--sys-on-secondary-container) !important;
+  --mat-icon-button-state-layer-color: var(--mat-toolbar-container-background-color);
+  --mat-icon-button-ripple-color: color-mix(in srgb, var(--sys-on-secondary-container) 12%, transparent);
+}
+
+:root .mat-toolbar .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
+  --mat-icon-button-state-layer-color: color-mix(
+    in srgb,
+    var(--mat-toolbar-container-background-color) 12%,
+    var(--sys-on-secondary-container)
+  ) !important;
+}
+
+/* Toolbar */
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  gap: 6px;
+}
+.toolbar-div {
+  background-color: var(--mat-toolbar-container-background-color);
+}
+
+/* Tabs */
+.nav-bar {
+  display: flex;
+}
+
+.nav-bar .nav-title {
+  color: var(--sys-on-surface);
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+  margin-right: 38px;
+  opacity: 1 !important;
+  padding-left: 0px;
+  padding-right: 4px;
+}
+
+.nav-bar .tab-title-button .mat-icon {
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+}
+
+.nav-bar .tab-title-button {
+  pointer-events: all !important;
+}
+
+.mat-mdc-tab-label-container {
+  border: 0px !important;
+}
+
+.mat-mdc-tab-header {
+  background-color: var(--sys-surface);
+  border-bottom: 1px solid var(--sys-surface-variant);
+  border-bottom-style: inset;
+  padding: 0 16px;
+}
+
+.nav-bar-div {
+  background-color: var(--sys-surface);
+  border-bottom: 1px solid var(--sys-surface-variant);
+  border-bottom-style: inset;
+  height: 48px;
+  --mat-icon-color: var(--sys-on-surface);
+}
+
+/* Card */
+
+.card-title {
+  font: var(--sys-typescale-title-medium-font);
+  margin: 0;
+}
+
+.card-top,
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Badge */
+.mat-badge-content {
+  --mat-badge-background-color: var(--sys-primary-container);
+}
+
+.mat-badge-accent .mat-badge-content {
+  --mat-badge-background-color: var(--sys-tertiary-container);
+}
+
+/* Text field input */
+.mat-mdc-form-field.mat-accent:not(:hover, :focus-within)
+  .mdc-text-field--outlined
+  .mdc-notched-outline--upgraded
+  .mdc-floating-label--float-above,
+.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-accent:not(
+    :hover,
+    :focus-within
+  )
+  .mdc-notched-outline__notch {
+  display: none;
+}
+
+/* Slide toogle button */
+:root .mat-accent.mat-mdc-slide-toggle {
+  --mat-switch-track-outline-color: var(--sys-outline-variant);
+}
+
+:root .mat-accent.mat-mdc-slide-toggle:hover,
+:root .mat-accent.mat-mdc-slide-toggle:focus-within {
+  --mdc-switch-selected-icon-color: var(--sys-on-primary);
+}
+
+/* Paginator */
+.mat-mdc-paginator-container {
+  justify-content: space-between !important;
+  padding: 10px 0 !important;
+}
+
+/* Table */
+.mat-mdc-cell {
+  border-bottom-width: 0px !important;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: color-mix(in srgb, var(--sys-surface-container-low) 75%, white);
+}
+.mat-mdc-row:nth-child(odd) {
+  background-color: var(--sys-surface-container-lowest);
+}
+.mat-mdc-row:nth-child(odd):hover,
+.mat-mdc-row:nth-child(even):hover {
+  background-color: color-mix(in srgb, var(--sys-surface-container) 75%, white);
+}
+.mdc-data-table__cell,
+.mdc-data-table__header-cell {
+  padding: 8px !important;
+}
+
+.mat-mdc-table-sticky-border-elem-left {
+  border-right: 2px solid color-mix(in srgb, var(--sys-outline-variant) 12%, transparent);
+}
+
+/* Expansion panel */
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none !important;
+}
+
+/* Custom scrollbar */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--sys-outline-variant) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--sys-outline-variant);
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.h-spacer {
+  flex: 1 1 auto;
+}
+
+.content-div {
+  margin: 16px;
+  gap: 16px;
+  display: flex;
+}
+
+
+a:visited{
+  color: var(--sys-primary);
+  text-decoration: none;
+}
+
+a{
+  color: var(--sys-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+
+a:hover, a:focus, a:active{
+  color: var(--sys-on-primary-container);
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  :host {
+    --mat-toolbar-container-background-color: var(--sys-on-primary-fixed);
+    --mdc-filled-button-container-color: var(--sys-inverse-primary) !important;
+    --mdc-filled-button-label-text-color: var(--sys-on-primary-container) !important;
+
+    --mat-filled-button-state-layer-color: var(--sys-on-primary-container) !important;
+    --mat-filled-button-ripple-color: color-mix(in srgb, var(--sys-on-primary-container) 12%, transparent) !important;
+
+    --mat-standard-button-toggle-selected-state-background-color: var(--sys-inverse-primary);
+    --mat-standard-button-toggle-selected-state-text-color: var(--sys-on-primary-container) !important;
+    --mat-select-panel-background-color: var(--sys-surface-container-low);
+    --mat-option-label-text-color: var(--sys-on-primary-container);
+    --mat-option-selected-state-label-text-color: var(--sys-on-primary);
+    --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(--sys-on-primary);
+
+    --mdc-outlined-text-field-input-text-color: var(--sys-on-primary-container);
+    --mdc-outlined-text-field-label-text-color: var(--sys-outline-variant);
+    --mdc-outlined-text-field-focus-outline-color: var(--sys-maincolor);
+    --mdc-outlined-text-field-outline-color: var(--sys-outline-variant);
+    --mdc-outlined-text-field-placeholder-text-color: var(--sys-outline-variant);
+
+    --mdc-snackbar-container-color: var(--sys-surface-container-low);
+    --mdc-snackbar-supporting-text-color: var(--sys-inverse-surface);
+    --mat-snack-bar-button-color: var(--sys-primary);
+  }
+
+  :root .mat-accent {
+    --sys-tertiary-container: var(--sys-on-primary-container) !important;
+    --sys-on-tertiary-container: var(--sys-on-primary-container) !important;
+  }
+
+  :root .mat-warn {
+    --mdc-filled-button-container-color: var(--sys-error-container) !important;
+    --mdc-filled-button-label-text-color: var(--sys-on-secprimaryondary-container) !important;
+
+    --mat-filled-button-state-layer-color: var(--sys-on-primary-container) !important;
+    --mat-filled-button-ripple-color: color-mix(in srgb, var(--sys-on-primary-container) 12%, transparent) !important;
+  }
+
+  :root .mat-accent.mat-mdc-form-field {
+    --mdc-filled-text-field-caret-color: var(--sys-primary);
+    --mdc-filled-text-field-focus-active-indicator-color: var(--sys-primary);
+    --mdc-filled-text-field-focus-label-text-color: var(--sys-primary);
+    --mdc-outlined-text-field-caret-color: var(--sys-primary);
+    --mdc-outlined-text-field-focus-outline-color: var(--sys-primary);
+    --mdc-outlined-text-field-focus-label-text-color: var(--sys-primary);
+    --mat-form-field-focus-select-arrow-color: var(--sys-primary);
+    --mat-option-selected-state-layer-color: var(--sys-primary-container);
+    --mdc-circular-progress-active-indicator-color: var(--sys-primary);
+    --mat-full-pseudo-checkbox-selected-icon-color: var(--sys-on-primary);
+    --mat-full-pseudo-checkbox-selected-checkmark-color: var(--sys-on-primary);
+    --mat-select-focused-arrow-color: var(--sys-primary);
+    --mat-option-selected-state-label-text-color: var(--sys-primary);
+    --mat-select-panel-background-color: var(--sys-primary) !important;
+  }
+
+  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    --mat-option-selected-state-label-text-color: var(--sys-on-primary-container);
+  }
+
+  .mat-mdc-option:focus.mdc-list-item, .mat-mdc-option.mat-mdc-option-active.mdc-list-item{
+    --mat-option-selected-state-layer-color:var(--sys-inverse-primary);
+  }
+
+  .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,
+  .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after {
+    --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(--sys-on-surface);
+    color: var(--sys-on-surface);
+  }
+
+  .mat-button-toggle-standalone.mat-button-toggle-appearance-standard .mat-pseudo-checkbox,
+  .mat-button-toggle-group-appearance-standard .mat-pseudo-checkbox {
+    --mat-standard-button-toggle-selected-state-text-color: var(--sys-on-surface);
+  }
+  .mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+    --mat-standard-button-toggle-selected-state-background-color: var(--sys-inverse-primary);
+  }
+
+  :root .mat-accent.mat-mdc-button-base {
+    --mdc-filled-button-container-color: var(--mat-toolbar-container-background-color);
+    --mdc-filled-button-label-text-color: var(--sys-on-secondary-container) !important;
+    --mat-filled-button-state-layer-color: var(--sys-on-secondary-container) !important;
+    --mat-filled-button-ripple-color: color-mix(in srgb, var(--sys-on-secondary-container) 12%, transparent) !important;
+
+    --mdc-outlined-button-label-text-color: var(--sys-primary) !important;
+    --mdc-outlined-button-state-layer-color: var(--sys-primary);
+    --mat-outlined-button-ripple-color: color-mix(in srgb, var(--sys-primary) 12%, transparent) !important;
+
+    --mdc-text-button-label-text-color: var(--sys-primary);
+    --mat-text-button-state-layer-color: var(--sys-primary);
+
+    --mdc-protected-button-label-text-color: var(--sys-primary);
+    --mat-protected-button-state-layer-color: var(--sys-primary);
+    --mat-protected-button-ripple-color: color-mix(in srgb, var(--sys-primary) 12%, transparent);
+
+    --mat-outlined-button-state-layer-color: var(--sys-primary);
+  }
+
+  :root .mat-accent.mat-mdc-checkbox {
+    --mdc-checkbox-selected-checkmark-color: var(--sys-on-primary-container);
+    --mdc-checkbox-selected-focus-icon-color: var(--sys-inverse-primary);
+    --mdc-checkbox-selected-hover-icon-color: var(--sys-inverse-primary);
+    --mdc-checkbox-selected-icon-color: var(--sys-inverse-primary);
+    --mdc-checkbox-selected-focus-state-layer-color: var(--sys-inverse-primary);
+    --mdc-checkbox-selected-hover-state-layer-color: var(--sys-inverse-primary);
+    --mdc-checkbox-unselected-pressed-state-layer-color: var(--sys-on-primary-container);
+    --mat-checkbox-disabled-label-color: color-mix(in srgb, var(--sys-on-surface) 38%, transparent);
+    --mat-checkbox-label-text-color: var(--sys-on-surface);
+  }
+
+  :root .mat-accent.mat-mdc-radio-button {
+    --mdc-radio-selected-focus-icon-color: var(--sys-inverse-primary);
+    --mdc-radio-selected-hover-icon-color: var(--sys-inverse-primary);
+    --mdc-radio-selected-icon-color: var(--sys-inverse-primary);
+    --mdc-radio-selected-pressed-icon-color: var(--sys-inverse-primary);
+    --mat-radio-checked-ripple-color: var(--sys-inverse-primary);
+  }
+
+  :root .mat-accent.mat-mdc-slide-toggle {
+    --mdc-switch-selected-focus-state-layer-color: var(--sys-inverse-primary);
+    --mdc-switch-selected-hover-state-layer-color: var(--sys-inverse-primary);
+    --mdc-switch-selected-pressed-state-layer-color: var(--sys-inverse-primary);
+
+    --mdc-switch-selected-focus-track-color: var(--sys-inverse-primary);
+    --mdc-switch-selected-hover-track-color: var(--sys-inverse-primary);
+    --mdc-switch-selected-pressed-track-color: var(--sys-inverse-primary);
+
+    --mdc-switch-selected-track-color: var(--sys-inverse-primary);
+    --mdc-switch-selected-icon-color: var(--sys-on-surface) !important;
+    --mdc-switch-selected-focus-icon-color: var(--sys-on-surface) !important;
+    --mdc-switch-selected-hover-icon-color: var(--sys-on-surface) !important;
+
+    --mdc-switch-handle-surface-color: var(--sys-on-primary-fixed);
+    --mdc-switch-selected-pressed-handle-color: var(--sys-on-primary-fixed);
+    --mdc-switch-selected-handle-color: var(--sys-on-primary-fixed);
+    --mdc-switch-selected-focus-handle-color: var(--sys-on-primary-fixed);
+    --mdc-switch-selected-hover-handle-color: var(--sys-on-primary-fixed);
+  }
+
+  .mat-mdc-row:nth-child(even) {
+    background-color: var(--sys-surface-container-low);
+  }
+  .mat-mdc-row:nth-child(odd):hover,
+  .mat-mdc-row:nth-child(even):hover {
+    background-color: color-mix(in srgb, var(--sys-surface-container) 90%, white);
+  }
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm,
+  .container {
+    max-width: 540px;
+  }
+
+  .d-sm-inline {
+    display: inline !important;
+  }
+  .d-sm-inline-block {
+    display: inline-block !important;
+  }
+  .d-sm-block {
+    display: block !important;
+  }
+
+  .d-sm-flex {
+    display: flex !important;
+  }
+  .d-sm-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-sm-none {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 720px;
+  }
+  .d-md-inline {
+    display: inline !important;
+  }
+  .d-md-inline-block {
+    display: inline-block !important;
+  }
+  .d-md-block {
+    display: block !important;
+  }
+  .d-md-flex {
+    display: flex !important;
+  }
+  .d-md-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-md-none {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 960px;
+  }
+  .d-lg-inline {
+    display: inline !important;
+  }
+  .d-lg-inline-block {
+    display: inline-block !important;
+  }
+  .d-lg-block {
+    display: block !important;
+  }
+  .d-lg-flex {
+    display: flex !important;
+  }
+  .d-lg-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-lg-none {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1140px;
+  }
+  .d-xl-inline {
+    display: inline !important;
+  }
+  .d-xl-inline-block {
+    display: inline-block !important;
+  }
+  .d-xl-block {
+    display: block !important;
+  }
+  .d-xl-flex {
+    display: flex !important;
+  }
+  .d-xl-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-xl-none {
+    display: none !important;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1320px;
+  }
+  .d-xxl-inline {
+    display: inline !important;
+  }
+  .d-xxl-inline-block {
+    display: inline-block !important;
+  }
+  .d-xxl-block {
+    display: block !important;
+  }
+  .d-xxl-flex {
+    display: flex !important;
+  }
+  .d-xxl-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-xxl-none {
+    display: none !important;
+  }
+}

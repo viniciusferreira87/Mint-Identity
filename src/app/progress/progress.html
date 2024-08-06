@@ -1,0 +1,76 @@
+<div class="nav-bar-div">
+  <div class="container">
+    <div class="nav-bar">
+      <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start" animationDuration="0"
+        style="width: 100%;">
+        <mat-tab labelClass="nav-title" disabled="true">
+          <ng-template mat-tab-label>
+            <a mat-icon-button class="tab-title-button" href="../"><mat-icon>arrow_back</mat-icon></a> <span>Progress</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Examples" aria-selected="true" #tab1>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-div">
+  <div class="container">
+    <div [ngStyle]="{ display: !tab1.isActive ? 'none' : null }">
+      <div style="display:flex; gap: 16px">
+        <mat-card appearance="outlined" style="flex: 1 1 auto">
+          <mat-card-content>
+            <div class="card-top">
+              <h3 class="card-title">Progress</h3>
+            </div>
+            <div class="card-middle">
+
+
+
+              <section>
+                <div class="example-label">Determinate progress</div>
+                <div class="example-row">
+                  <mat-progress-bar mode="determinate" value="40"
+                    style="height: 10px; width: 600px;"></mat-progress-bar>
+                </div>
+              </section>
+              <mat-divider></mat-divider>
+              <section>
+                <div class="example-label">Indeterminate progress</div>
+                <div class="example-row">
+                  <mat-progress-bar mode="indeterminate" style="height: 10px; width: 600px;"></mat-progress-bar>
+                </div>
+              </section>
+              <mat-divider></mat-divider>
+              <section>
+                <div class="example-label">Query progress</div>
+                <div class="example-row">
+                  <mat-progress-bar mode="query" style="height: 10px; width: 600px;"></mat-progress-bar>
+                </div>
+              </section>
+              <mat-divider></mat-divider>
+              <section>
+                <div class="example-label">Determinate progress spinner</div>
+                <div class="example-row">
+                  <mat-progress-spinner mode="determinate" value="90" diameter="24"></mat-progress-spinner>
+                </div>
+              </section>
+              <mat-divider></mat-divider>
+              <section>
+                <div class="example-label">Indeterminate progress spinner</div>
+                <div class="example-row">
+                  <mat-progress-spinner mode="indeterminate" diameter="24"></mat-progress-spinner>
+                </div>
+              </section>
+            </div>
+
+
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

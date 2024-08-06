@@ -1,0 +1,140 @@
+<div class="nav-bar-div">
+    <div class="container">
+        <div class="nav-bar">
+            <mat-tab-group mat-stretch-tabs="false" selectedIndex="1" mat-align-tabs="start" animationDuration="0"
+                style="width: 100%;">
+                <mat-tab labelClass="nav-title" disabled="true">
+                    <ng-template mat-tab-label>
+                        <a mat-icon-button class="tab-title-button" href="../"><mat-icon>arrow_back</mat-icon>
+                        </a><span>Buttons</span>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="Examples" aria-selected="true" #tab1>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-div">
+    <div class="container">
+        <div [ngStyle]="{ display: !tab1.isActive ? 'none' : null }">
+            <div style="display:flex; gap: 16px">
+                <mat-card appearance="outlined" style="flex: 1 1 auto">
+                    <mat-card-content>
+                        <div class="card-top">
+                            <h3 class="card-title">Buttons</h3>
+                        </div>
+                        <div class="card-middle">
+
+
+
+
+                            <section>
+                                <div class="example-label">Basic</div>
+                                <div class="example-row">
+                                    <button mat-button>Basic</button>
+                                    <button mat-button><mat-icon>home</mat-icon>With icon</button>
+                                    <button mat-button disabled>Disabled</button>
+                                    <button mat-button color="warn">Error</button>
+                                    <button mat-button color="accent">Large</button>
+                                    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+                                </div>
+                            </section>
+                            <mat-divider></mat-divider>
+                            <section>
+                                <div class="example-label">Raised</div>
+                                <div class="example-row">
+                                    <button mat-raised-button>Basic</button>
+                                    <button mat-raised-button><mat-icon>home</mat-icon>With icon</button>
+                                    <button mat-raised-button disabled>Disabled</button>
+                                    <button mat-raised-button color="warn">Error</button>
+                                    <button mat-raised-button color="accent">Large</button>
+                                    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+                                </div>
+                            </section>
+                            <mat-divider></mat-divider>
+                            <section>
+                                <div class="example-label">Stroked</div>
+                                <div class="example-row">
+                                    <button mat-stroked-button>Basic</button>
+                                    <button mat-stroked-button><mat-icon>home</mat-icon>With icon</button>
+                                    <button mat-stroked-button disabled>Disabled</button>
+                                    <button mat-stroked-button color="warn">Error</button>
+                                    <button mat-stroked-button color="accent">Large</button>
+                                    <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+                                </div>
+                            </section>
+                            <mat-divider></mat-divider>
+                            <section>
+                                <div class="example-label">Flat</div>
+                                <div class="example-row">
+                                    <button mat-flat-button>Basic</button>
+                                    <button mat-flat-button><mat-icon>home</mat-icon>With icon</button>
+                                    <button mat-flat-button disabled>Disabled</button>
+                                    <button mat-flat-button color="warn">Error</button>
+                                    <button mat-flat-button color="accent">Large</button>
+                                    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+                                </div>
+                            </section>
+                            <mat-divider></mat-divider>
+                            <section>
+                                <div class="example-label">Icon</div>
+                                <div class="example-row">
+                                    <div>
+                                        <button mat-icon-button
+                                            aria-label="Example icon button with a vertical three dot icon">
+                                            <mat-icon>more_vert</mat-icon>
+                                        </button>
+                                        <button mat-icon-button disabled aria-label="Example of a disabled icon button">
+                                            <mat-icon>block</mat-icon>
+                                        </button>
+                                        <button mat-icon-button color="primary"
+                                            aria-label="Example icon button with a home icon"><mat-icon>home</mat-icon></button>
+                                        <button mat-icon-button color="warn"
+                                            aria-label="Example icon button with a home icon"><mat-icon>home</mat-icon></button>
+                                        <button mat-icon-button color="accent"
+                                            aria-label="Example icon button with a home icon"><mat-icon>home</mat-icon></button>
+                                        <button mat-icon-button class="button-nav" color="accent"
+                                            aria-label="Example icon button with a home icon"><mat-icon>home</mat-icon></button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <br/>
+
+                            <h3 class="card-title">Button toggle</h3>
+                            <section>
+                                <div class="example-label">With indicator</div>
+                                <div class="example-row">
+                                    <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color"
+                                        hideSingleSelectionIndicator="false">
+                                        <mat-button-toggle value="red">Red</mat-button-toggle>
+                                        <mat-button-toggle value="green">Green</mat-button-toggle>
+                                        <mat-button-toggle value="blue">Blue</mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                            </section>
+                            <mat-divider></mat-divider>
+                            <section>
+                                <div class="example-label">Without indicator</div>
+                                <div class="example-row">
+                                    <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color"
+                                        hideSingleSelectionIndicator="true">
+                                        <mat-button-toggle value="red">Red</mat-button-toggle>
+                                        <mat-button-toggle value="green">Green</mat-button-toggle>
+                                        <mat-button-toggle value="blue">Blue</mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                            </section>
+
+
+                        </div>
+                        <div class="card-bottom"></div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
