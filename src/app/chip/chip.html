@@ -53,6 +53,41 @@
               </section>
 
 
+
+              <section>
+                <div class="example-label">Chips Drag and Drop</div>
+                <div class="example-row">
+                  <div>
+                    <mat-chip-grip aria-label="Query example" cdkDropList
+                    cdkDropListOrientation="horizontal"
+                    (cdkDropListDropped)="drop($event)" style="display: flex; gap: 10px">
+                    @for (vegetable of vegetables(); track vegetable.name) {
+                      <mat-chip disableRipple="true" cdkDrag style="overflow: hidden;">{{vegetable.name}}</mat-chip>
+                    }
+                    </mat-chip-grip>
+                  </div>
+                </div>
+              </section>
+
+
+
+              <section>
+                <div class="example-label">Chips Drag and Drop with Remove</div>
+                <div class="example-row">
+                  <div class="scroll-nowrap">
+                    <mat-chip-grip aria-label="Query example"  cdkDropList
+                    cdkDropListOrientation="horizontal"
+                    (cdkDropListDropped)="drop($event)">
+                    @for (vegetable of vegetables(); track vegetable.name) {
+                      <mat-chip disableRipple="true" cdkDrag>{{vegetable.name}} <button matChipRemove [attr.aria-label]="'remove ' + vegetable.name">
+                        <mat-icon>cancel</mat-icon>
+                      </button></mat-chip>
+                    }
+                    </mat-chip-grip>
+                  </div>
+                </div>
+              </section>
+
             </div>
             <div class="card-bottom"></div>
           </mat-card-content>
